@@ -136,7 +136,7 @@ public class CalculatorFragment extends Fragment {
                 }
                 if(operatorIsInserted == false){
                     curr = curr + "+";
-                    operatorIsInserted = true;
+                      operatorIsInserted = true;
                 }
             }
             displayPreviousText();
@@ -149,7 +149,7 @@ public class CalculatorFragment extends Fragment {
               if (operatorIsInserted == true && !curr.substring(curr.length()-1,curr.length()).equals("")){
                   String [] token = curr.split("\\+");
                           result = Double.parseDouble(token[0])+Double.parseDouble(token[1]);
-                          resultText = Double.toString(result);
+                          resultText = cutDotsDecimal(Double.toString(result));
                   displayCurrentText();
               }
           }
@@ -182,5 +182,14 @@ public class CalculatorFragment extends Fragment {
           }
 
       }
+    }
+    private String cutDotsDecimal(String number){
+      String temp[] = number.split("\\.");
+      if (temp.length > 1){
+          if (temp[1].equals("0")){
+              number = temp[0];
+          }
+      }
+      return number;
     }
 }
