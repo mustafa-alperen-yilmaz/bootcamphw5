@@ -5,6 +5,9 @@ plugins {
 android {
     namespace 'com.example.bootcamphw5'
     compileSdk 32
+    buildFeatures{
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId "com.example.bootcamphw5"
@@ -27,7 +30,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+apply plugin: "androidx.navigation.safeargs"
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
